@@ -35,9 +35,9 @@ public class ProductValidationService {
             checkCurrentValidation(event);
             createValidation(event, true);
             handleSuccess(event);
-        } catch (Exception ex) {
-            log.error("Error trying to validate product: ", ex);
-            handleFailCurrentNotExecuted(event, ex.getMessage());
+        } catch (Exception e) {
+            log.error("Error trying to validate product: ", e);
+            handleFailCurrentNotExecuted(event, e.getMessage());
         }
         producer.sendEvent(jsonUtil.toJson(event));
     }
